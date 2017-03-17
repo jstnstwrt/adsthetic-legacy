@@ -1,0 +1,68 @@
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Audience Insights</h1>
+        <span>First understand your audience. Then complete your influencer search.</span>
+        <button type="button" class="btn btn-info" style="margin-top: 10px;" ng-click="toResult()" data-toggle="modal" data-target=".bs-example-modal-sm">Find Influencers</button>
+    </div>
+</section>
+            
+           
+
+
+<section>
+    <div class="container" style="min-height: 500px;">
+        
+        <div class="col-sm-12" style="margin-top: 20px">
+            
+            <span class="col-sm-3">
+                <h3 class="center">Target Account</h3>
+                <a target="_blank" href="https://www.instagram.com/{{target.instagram_username}}"><img style="margin: 0 auto 20px auto; height:200px; width:auto; border: 2px solid rgba(91, 192, 222, .3);" ng-src="{{target.profile_img_url}}" class="img-circle img-responsive" alt=""></a>
+                    <a target="_blank" href="https://www.instagram.com/{{target.instagram_username}}"><span style="text-align:center; display: inline-block;padding-bottom: 5px;font-size: 25px; cursor: pointer;"><b>{{target.instagram_username}}</b></span></a><br>
+                    <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.bio}}</span><br>
+                    <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.num_followers | number:0}}</b> <i>followers</i></span><br>
+                    <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.predicted_engagement * 100 | number:2}}% </b> <i>engagement</i></span><br>
+                    <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.predicted_likes | number:0}}</b> <i>likes</i></span><br>
+                    <span style="padding-bottom: 15px;"><b style="font-size: 15px;">{{target.predicted_comments}}</b> <i>comments</i></span> <br>
+            </span>
+
+            <div class="col-sm-3">
+                <div id="barChart" style="opacity: 1;">
+                    <h3 class="center">Age</h3>
+                    <canvas id="barChartCanvas" width="250" height="250"></canvas>
+                </div>
+                
+                <div id="pieChart" style="opacity: 1;">
+                    <h3 class="center">Gender</h3>
+                    <canvas id="pieChartCanvas" width="250" height="250"></canvas>
+                </div>
+            </div>
+            <div class="col-sm-6">
+            <h3 class="center"> Interests</h3>
+                <div class="row">
+                    <div ng-repeat="influencer in interests">
+                        <div class="col-sm-4">
+                            <div style="padding-top:25px;padding-bottom:25px;">
+                                <a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}"><img style="margin: 0 auto; height:100px; width:auto;" ng-src="{{influencer.profile_img_url}}" class="img-circle img-responsive" alt=""></a>
+                                <a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}"><h4 style="text-align: center;">{{influencer.instagram_username}}</h4></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Progress Bar Modal Start -->
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+              <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content"  style="padding:20px; margin-top: 100px;">
+                <h3>Finding the best influencer matches...</h3>
+                <div id="myProgress2">
+                    <div id="myBar2"></div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal End -->
+        </div>
+    </div>
+</section>

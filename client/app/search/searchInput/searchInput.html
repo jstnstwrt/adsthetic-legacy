@@ -1,0 +1,39 @@
+<section>
+    <div class="container" style="min-height: 500px;">
+
+
+        <!-- Start Onboarding Card (No lists yet, Null state) -->
+        <div style="margin-top: 50px; padding-top: 2%; padding-bottom: 3%; background: rgba(91, 192, 222, .3); border-radius: 5px;" class="row">
+            <div class="col-sm-6" style="padding-left: 5%;">
+                <h2>Audience First Search</h2>
+                <p>Lists help you keep influencers organized. You can break influencers down into categories by account style, geography, or anything else you want. Create your first list and start adding influencers to it from the dashboard.</p>
+                <div style="display: block;text-align: center; width: 80%;">
+                    <form>
+                        <input type="text" name="targetAccount" class="form-control" id="targetAccount" placeholder="Enter the username of client or target account (e.g., calvinklien)." ng-model="targetAccount">
+                        <input type="submit" class="btn btn-default" ng-click="gotoConfirm()" data-toggle="modal" data-target="#progressBar" value="Analyze" style="margin: 15px 0;"></input>
+                    </form> 
+                </div>
+                
+            </div>
+            <div class="col-sm-6">
+                <img src="assets/images/network3.png" style="margin: auto; display:block; width: 50%; min-width: 10em; padding-top: 5px;">
+            </div>
+        </div>
+        <!-- End Onboarding Bard -->
+
+
+        <!-- Progress Bar Modal Start -->
+        <div id="progressBar" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content"  style="padding:20px; margin-top: 100px;">
+            <h3>Analyzing {{targetAccount}}'s Instagram network ...</h3>
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
+
+    </div>
+</section>

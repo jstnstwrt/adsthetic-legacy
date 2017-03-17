@@ -1,0 +1,15 @@
+#myProgress {
+    width: 100%;
+    background-color: #e0e0e0;
+}
+#myBar {
+    width: 1%;
+    height: 30px;
+    background-color: #6495ed;
+}
+
+#progressLabel {
+    text-align: center; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}

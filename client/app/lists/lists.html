@@ -1,0 +1,43 @@
+<section>
+	<div class="container" style="min-height: 500px;">
+		<div class="row">
+			<button style="margin-bottom: 10px; float: right; display: block;" ng-if="allListsByUser.length" ng-click="lists.makeList()" type="button" class="btn btn-default">Create new List</button>
+		</div>
+
+		<!-- Start Onboarding Card (No lists yet, Null state) -->
+		<div style="padding-top: 2%; padding-bottom: 3%; background: rgba(91, 192, 222, .3); border-radius: 5px;" ng-if="!allListsByUser.length" class="row">
+			<div class="col-sm-6" style="padding-left: 5%">
+				<h2>Working with Lists</h2>
+				<p>Lists help you keep influencers organized. You can break influencers down into categories by account style, geography, or anything else you want. Create your first list and start adding influencers to it from the dashboard.</p>
+				<button ng-click="lists.makeList()" type="button" class="btn btn-default" style="padding-left: 10px;">Start new List</button>
+			</div>
+			<div class="col-sm-6">
+				<img src="assets/images/house_plan.png" style="margin: auto; display:block; width: 35%; min-width: 10em; padding-top: 5px;">
+			</div>
+		</div>
+		<!-- End Onboarding Bard -->
+
+		<div class="row" style="margin-bottom: 20px">
+			<div style="padding-top: 25px;" class="col-md-12">
+				<div ng-repeat="list in allListsByUser">
+
+					<!-- List Card -->
+					<div class="col-sm-4" >
+						<div ng-click="lists.listDetail(list._id)" style="overflow:hidden; text-align:center; background-color: #5bc0de; color: #fff; margin: 5px; border-radius: 5px; height: 120px; line-height: 120px; cursor: pointer; cursor: hand;">
+							<span style="padding-left: 5px; padding-right: 5px; display: inline-block; vertical-align: middle; line-height: normal;">
+								<h2 style="text-align: center">{{list.name}}</h2> 
+								<p style="text-align: center">{{list.influencersData.length | number}} influencers</p> 
+							</span>
+						</div>
+					</div>
+					<!-- End List Card -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+
+
+

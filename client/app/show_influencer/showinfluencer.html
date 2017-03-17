@@ -1,0 +1,46 @@
+<section>
+	<div class="container">
+		<div class="jumbotron" ng-repeat="influencer in influencerDetails">
+			<div class="col-sm-12" style="margin-bottom: 20px;">
+				<span class="col-sm-4">
+					<img style="height:250px; width:auto; display: inline-block; margin: auto;" ng-src="{{influencer.profile_img_url}}" class="img-circle" alt="">
+				</span>
+				<span class="col-sm-8">
+					<h1 style="display: inline-block;"><i>{{influencer.instagram_username}}</i></h1>
+					<p ng-if="influencer.bio" style="padding-top: 25px;">{{influencer.bio}}</p>
+					<div ng-if="!influencer.bio" style="padding-top: 25px;"></div>
+				</span>
+			</div>
+			
+			<div style="padding-top: 20px;">
+				<h2 style="text-align: center; padding-bottom: 5px;"> Account Metrics </h2>
+				<div class="col-sm-12" style="background-color: #C9EDF2; border-radius: 10px; margin-bottom:20px;">
+					<div class="col-sm-6">
+						<h3 style="text-align: center"> Engagement </h3>
+						<p><b>{{influencer.num_followers | number:0}}</b> <i>followers</i></p>
+						<p><b>{{influencer.predicted_engagement * 100 | number:1}}%</b> <i>engagement</i></p>
+						<p><b>{{influencer.predicted_likes | number:0}}</b> <i>average likes</i></p>
+						<p><b>{{influencer.predicted_comments | number:0}}</b> <i>average comments</i></p>
+						<!-- <p><b>Posts: </b>{{influencer.num_posts}}  <i>posts</i></p> -->
+					</div>
+					
+					<div class="col-sm-6">
+						<h3 style="text-align:center; padding-bottom: 5px;">Growth</h3>
+						<p><b>{{influencer.follower_growth_rate * 100 | number:1}}% </b> <i>follower growth</i></p>
+						<p><b>{{influencer.engagement_growth_rate * 100 | number:1}}% </b> <i>engagement growth</i></p>
+						<p><b>{{influencer.like_growth_rate * 100 | number:1}}% </b> <i>like growth</i></p>
+						<p><b>{{influencer.comment_growth_rate * 100 | number:1}}%</b> <i>comment growth</i></p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+
+
+	</div>
+</section>
+
+
+
+

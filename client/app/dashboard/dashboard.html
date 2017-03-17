@@ -1,0 +1,117 @@
+<section>
+	<div class="container" style="min-height: 500px;">
+		
+		<!-- TOOL BAR START -->
+		<div class="col-md-12">
+			<nav class="navbar navbar-default" style="margin-top: 25px;">
+				<div class="container-fluid" >
+
+					<div class="input-group" style="padding-top: 5px">
+						<span class="input-group-addon" id="basic-addon1">Search</span>
+						<input type="text" class="form-control" placeholder="Search your dashboard for keywords" aria-describedby="basic-addon1" ng-model="inputText">
+					</div>
+
+					<form name="addForm" class="navbar-form navbar-left" style="padding-left: 0px">
+						<div class="form-group">
+							<input name="username" type="text" class="form-control" ng-model="dashboard.influencer" placeholder="username(s)">
+							<input type="submit" class="btn btn-default" ng-click="dashboard.insertinfluencer(dashboard.influencer)" value="Add">
+						</div>
+					</form>
+
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>Sort By: </b> {{sortType}}<span class="caret">
+							</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-click="dashboard.sortBy('followers')"><a>Followers</a></li>
+							<li ng-click="dashboard.sortBy('engagement')"><a>Engagements</a></li>
+							<li ng-click="dashboard.sortBy('likes')"><a>Likes</a></li>
+							<li ng-click="dashboard.sortBy('comments')"><a>Comments</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<ul ng-if="influencers_data.length" class="nav navbar-nav navbar-right">
+					<li><a>Showing: {{showLimitNumber}} of {{influencers_data.length}}</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div ng-if="addedToList" class="alert alert-success">
+			<strong>Success!</strong> Successfully added to the list.
+		</div>
+
+		<div style="padding-top: 2%; padding-bottom: 3%; margin-left: 5px; margin-right: 5px;  background: rgba(91, 192, 222, .3); border-radius: 5px;" ng-if="!influencers_data.length" class="row">
+			<div class="col-sm-6" style="padding-left: 5%">
+				<h2>Getting Started</h2>
+				<p>Welcome to your Influencer Dashboard. You'll be able to organize and analyze the influencers that matters most to your business right here. Use can use the add feature in the tool bar above to add your first influencer. Simply type in their Instagram handle.</p>
+			</div>
+			<div class="col-sm-6">
+				<img src="assets/images/rocket.png" style="margin: auto; display:block; width: 35%; min-width: 10em; padding-top: 5px;">
+			</div>
+		</div>
+		<!-- TOOL BAR END -->
+
+		<div class="row">
+			<div ng-repeat="influencer in influencers_data | filter:myFilter | orderBy:propertyType | limitTo:showLimitNumber">
+				<div ng-if="viewType == 'tile'" class="col-sm-4">
+					<div style="padding-top:25px;padding-bottom:25px;" class="col-sm-12">
+						<span class="col-sm-6">
+							<img ng-click="dashboard.showInfluencer(influencer.instagram_id)" style="cursor: pointer; margin: 0 auto; height:120px; width:auto;" ng-src="{{influencer.profile_img_url}}" class="img-circle" alt="">
+							<div style="margin-top: 25px;">
+								<a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}"><i class="fa fa-instagram fa-2x col-sm-2 social-media"></i></a> 
+								<a><i class="fa fa-twitter fa-2x col-sm-2 social-media"></i></a>
+								<a><i class="fa fa-envelope fa-2x col-sm-2 social-media"></i></a>
+							</div>
+						</span>
+						<span class="col-sm-6" >
+							<span ng-click="dashboard.showInfluencer(influencer.instagram_id)" style="display: inline-block;padding-bottom: 10px;font-size: 20px; cursor: pointer;"><b>{{influencer.instagram_username}}</b></span><br>
+							<span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.num_followers | number:0}}</b> <i>followers</i></span><br>
+							<span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_engagement * 100 | number:2}}% </b> <i>engagement</i></span><br>
+							<span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_likes | number:0}}</b> <i>likes</i></span><br>
+							<span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_comments}}</b> <i>comments</i></span><br>
+							<span>
+								<span style="display: inline-block;">
+									<button ng-click="dashboard.showInfluencer(influencer.instagram_id)" class="btn btn-default">Details</button>
+								</span>
+
+								<span style="display: inline-block;">
+									<div style="padding-top: 10px;" class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </span>
+										</button>
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+											<!-- Add influencer to list -->
+											<li class=" dropdown-submenu"><a>Add to list</a>
+												<ul class="dropdown-menu" style="left: auto; margin-left: 10px; right: 98%;">
+													<li><a ng-click="dashboard.createList()">Create new list</a></li>
+													<li class="divider"></li>
+													<li class="menu-item" ng-repeat="userlist in influencer.userLists">
+														<a ng-click="dashboard.addInfluencerToList(influencer.instagram_id, userlist)">{{userlist.name}}</a>
+													</li>
+												</ul>
+											</li>
+											<!-- Remove influencer from dashboard -->
+											<li><a ng-click="sweetRemove(influencer)">Remove {{influencer.instagram_username}}</a></li>
+										</ul>
+									</div>
+								</span>
+							</span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row" ng-if="areThereMoreInfluencersToShow">
+			<div class="text-center">
+				<button ng-click="dashboard.showMoreinfluencers()" style="margin-top: 100px;" type="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false">Load Next 100 Influencers
+				</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+</section>

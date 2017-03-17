@@ -1,0 +1,23 @@
+<section>
+	<div class="container">
+		<div class="page-header">
+			<h1>Create SubList for <i>{{listName}}</i><br><small>{{listDescription}}</small></h1>
+		</div>
+		<form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Sublist Name</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter List Name" ng-model="newsublist.name">
+				<small class="form-text text-muted">Enter desired name for the list.</small>
+			</div>
+			<div class="form-group">
+				<label for="exampleTextarea">Sublist Description</label>
+				<textarea type="text" class="form-control" id="exampleTextarea" placeholder="Enter Description for the List" ng-model="newsublist.description"></textarea>
+			</div>
+			<button ng-click="newsublist.createsublist()" type="submit" class="btn btn-primary">Create Sub List</button>
+		</form>
+	</div>
+</section>
+
+
+
+

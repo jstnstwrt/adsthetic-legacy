@@ -1,0 +1,51 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h1>Add Influencers</h1>
+				<p>Add instagram users and influencers you want to track to your dashboard. We will pull data about them for you and keep it up to date.</p>
+				{{showSuccessAlertIndividual}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="col-md-6" style="height: 500px;">
+					<div class="row">
+						<h3 class="text-center">Manually</h3>
+						<p class="text-center" style="margin-right: 10px; margin-left: 10px;">Add individual influencers to your dashboard by username. You can also add multiple at once by separating usernames with a space.</p>
+					</div>
+					<div class="row">
+						<div>
+						<div ng-show="setIndividualAlertSuccessTrue" style="margin-left: 10px;" class="alert alert-success" role="alert">Influencer(s) added successfully Added</div>
+						<div ng-show="setIndividualAlertFailureTrue" style="margin-left: 10px;" class="alert alert-danger" role="alert">Influencer(s) NOT added successfully</div>
+							<form novalidate class="input-group" style="top: 50%;position: absolute;left:20%;">
+								<input style="width: 200%;" class="form-control" type="text" ng-model="addinfluencers.influencer" placeholder="Influencer(s)"/><br />
+								<input style="margin: 15px; margin-left: 65%; left: 50%;" type="button" class="btn btn-default" type="submit" ng-click="addinfluencers.insertinfluencer(addinfluencers.influencer)" value="Insert Influencer" />
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6" style="border-left: solid thin #0f0f0f; height: 500px;">
+					<div class="row">
+						<h3 class="text-center">By List</h3>
+						<p class="text-center" style="margin-right: 5px; margin-left: 5px;">Add a list of influencers to your dashboard all at once by uploading a .csv file. Follow directions below to to export from Excel or Google spreadsheet.</p>
+					</div>
+					<div class="row">
+						<div style="margin-top: 35%; margin-left: 25%;">
+						<div ng-show="setcsvAlertSuccessTrue" style="margin-left: 10px;" class="alert alert-success" role="alert">Influencer(s) added successfully Added</div>
+						<div ng-show="setcsvAlertFailureTrue" style="margin-left: 10px;" class="alert alert-danger" role="alert">Influencer(s) NOT added successfully</div>
+							<label class="import-file">
+								<input type="file" multiple onchange="angular.element(this).scope().fileNameChanged(this)">
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+

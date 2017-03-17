@@ -1,0 +1,51 @@
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Discover Daily</h1>
+        <span>Here is your latest delivery of influencers. Go through their profiles and add them to your dashboard if you like them! <br> We will keep learning your preferences.</span>
+        </h2 style="padding-top: 20px;"> {{discoveryStack.length}} Influencers Remaining</h2>
+    </div>
+</section>
+
+<section>
+    <div class="container" style="min-height: 500px; margin-top: 20px;">
+
+        <!-- Empty Discovery Stack -->
+        <div ng-if="discoveryStack.length == 0">
+        	<h1>No more influencers today!</h1>
+        </div>
+        <!-- End Empty Discovery Stack -->
+
+        <!--  -->
+        <div class="row">
+            <div ng-repeat="influencer in discoveryStack | limitTo:6">
+                <div class="col-sm-4">
+                    <div style="padding-top:25px;padding-bottom:25px; margin: 10px 0px; background-color: #e7e7e7; border-radius: 15px;" class="col-sm-12">
+                        <div>
+                            <span class="col-sm-6" style="text-align: center;">
+                                <a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}"><img style="margin: auto; height:120px; width:auto;" ng-src="{{influencer.profile_img_url}}" class="img-circle" alt=""></a>
+                            </span>
+                            <span class="col-sm-6" >
+                                <span style="display: inline-block;padding-bottom: 5px;font-size: 20px;"><b><a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}">{{influencer.instagram_username}}</a></b></span><br>
+                                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.num_followers | number:0}}</b> <i>followers</i></span><br>
+                                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_engagement * 100 | number:2}}% </b> <i>engagement</i></span><br>
+                                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_likes | number:0}}</b> <i>likes</i></span><br>
+                                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_comments}}</b> <i>comments</i></span><br>
+                            </span>
+                        </div>
+                        <span class="col-sm-12" style="text-align: center;">
+                                <!-- Add back in Bio at some point. -->
+<!--                             <p>{{influencer.bio}}</p>
+ -->                            <span style="display: inline-block; margin-top: 15px; width: 100%;">
+                                <button class="btn btn-danger" ng-click="popFromStack(influencer)" style="margin-left: 15px; margin-right: 15px; width: 30%; text-align: center;"><i class="fa fa-times fa-1x"></i></button>
+                                <button class="btn btn-success" ng-click="addToDash(influencer)" style="margin-left: 15px; margin-right: 15px; width: 30%;"><i class="fa fa-check fa-1x"></i></button> 
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+

@@ -1,0 +1,20 @@
+<section>
+	<div class="container" style="min-height: 500px;">
+		<form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Name</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter List Name" ng-model="newlist.name">
+				<small class="form-text text-muted">Enter desired name for the list.</small>
+			</div>
+			<div class="form-group">
+				<label for="exampleTextarea">Description</label>
+				<textarea type="text" class="form-control" id="exampleTextarea" placeholder="Enter Description for the List" ng-model="newlist.description"></textarea>
+			</div>
+			<button ng-click="newlist.createlist()" type="submit" class="btn btn-primary">Create List</button>
+		</form>
+	</div>
+</section>
+
+
+
+

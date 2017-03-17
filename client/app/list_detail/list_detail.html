@@ -1,0 +1,71 @@
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>{{list.name}}</h1>
+        <span>Your list detail view.</span>
+    </div>
+</section>
+
+
+<section>
+    <div class="container" style="min-height: 500px;">
+        
+        <!-- Start New List Onboarding -->
+        <div style="margin-top: 20px; margin-bottom: 3%; background: rgba(91, 192, 222, .3); border-radius: 5px;" ng-if="!influencersData.length" class="row">
+            <div class="col-sm-6" style="padding-left: 5%">
+                <h2>Start Adding Influencers</h2>
+                <p>You can use the {{list.name}} list to organize your influencers around a common theme. But first we need to add some influencers to this list. You can add influencers from your dashboard. Add as many as you would like.</p>
+                <button ng-click="toDashboard()" type="button" class="btn btn-default" style="padding-left: 10px; margin-bottom: 5px;">Go to Dashboard</button>
+            </div>
+            <div class="col-sm-6">
+                <img src="assets/images/house_plan.png" style="margin: auto; display:block; width: 25%; min-width: 10em; padding-top: 10px;">
+            </div>
+        </div>
+        <!-- End New List Onboarding= -->
+
+
+        <div class="row"> 
+            <div ng-repeat="influencer in influencersData"> 
+                <div class="col-sm-4">
+                    <div style="padding-top:25px;padding-bottom:25px;" class="col-sm-12">
+                        <span class="col-sm-6">
+                            <img ng-click="showInfluencer(influencer.instagram_id)" style="margin: 0 auto; height:120px; width:auto;" ng-src="{{influencer.profile_img_url}}" class="img-circle" alt="">
+                            <div style="margin-top: 25px;">
+                                <a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}"><i class="fa fa-instagram fa-2x col-sm-2 social-media"></i></a> 
+                                <a><i class="fa fa-twitter fa-2x col-sm-2 social-media"></i></a>
+                                <a><i class="fa fa-envelope fa-2x col-sm-2 social-media"></i></a>
+                            </div>
+                        </span>
+                        <span class="col-sm-6">
+                            <span ng-click="showInfluencer(influencer.instagram_id)" style="display: inline-block;padding-bottom: 10px;font-size: 20px;"><b>{{influencer.instagram_username}}</b></span><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.num_followers | number:0}}</b> <i>followers</i></span><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_engagement * 100 | number:2}}% </b> <i>engagement</i></span><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_likes | number:0}}</b> <i>likes</i></span><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_comments}}</b> <i>comments</i></span><br>
+                        </span>
+                        <span>
+                            <span style="display: inline-block;">
+                                <button ng-click="showInfluencer(influencer.instagram_id)" class="btn btn-default">Details</button>
+                            </span>
+                            <span style="display: inline-block;">
+                                    <div style="padding-top: 10px;" class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <!-- Remove influencer from dashboard -->
+                                            <li><a ng-click="#">Remove from list</a></li>
+                                        </ul>
+                                    </div>
+                                </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: auto; display: block;">
+            <button style="padding-top: 5px; text-align: center; margin-left: 50%" ng-click="sweetDelete(list)"> Delete List</button>
+        </div>
+        
+    </div>
+</section>

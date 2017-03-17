@@ -1,0 +1,190 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <base href="/">
+    <title>Adsthetic</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+      <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+      <link rel="stylesheet" href="app/app.css">
+      <!-- injector:css -->
+      <link rel="stylesheet" href="app/add_influencers/addinfluencers.css">
+      <link rel="stylesheet" href="app/admin/admin.css">
+      <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/dashboard/dashboard.css">
+      <link rel="stylesheet" href="app/discover/discover.css">
+      <link rel="stylesheet" href="app/list_detail/list_detail.css">
+      <link rel="stylesheet" href="app/lists/lists.css">
+      <link rel="stylesheet" href="app/newlist/newlist.css">
+      <link rel="stylesheet" href="app/newsublist/newsublist.css">
+      <link rel="stylesheet" href="app/search/searchConfirm/searchConfirm.css">
+      <link rel="stylesheet" href="app/search/searchInput/searchInput.css">
+      <link rel="stylesheet" href="app/search/searchResult/searchResult.css">
+      <link rel="stylesheet" href="app/show_influencer/showinfluencer.css">
+      <link rel="stylesheet" href="components/footer/footer.css">
+      <link rel="stylesheet" href="components/header/header.css">
+      <link rel="stylesheet" href="assets/css/bootstrap.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/dark.css">
+      <link rel="stylesheet" href="assets/css/font-icons.css">
+      <link rel="stylesheet" href="assets/css/animate.css">
+      <link rel="stylesheet" href="assets/css/magnific-popup.css">
+      <link rel="stylesheet" href="assets/css/responsive.css">
+      <!-- endinjector -->
+    <!-- endbuild -->
+  </head>
+  <body ng-app="adstheticCmsApp" class="stretched">
+
+      
+    <!--[if lt IE 7]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div>
+    <!-- Add your site or application content here -->
+      <!-- <navbar></navbar> -->
+      <header id="header" class="dark full-header no-sticky" style="padding-top: 0px; margin-top: 0px;"></header>
+      <div ui-view="" class="{{ctrl.getActiveState()}}"></div>
+      <footer id="footer" class="dark" style="padding-top: 0px; margin-top: 0px;"></footer>
+
+      <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+      <![endif]-->
+      <!-- build:js({client,node_modules}) app/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+        <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
+        <!-- endbower -->
+      <!-- endbuild -->
+      <!-- build:js(.tmp) app/app.js -->
+        <script src="app/app.js"></script>
+        <!-- injector:js -->
+        <script type="text/javascript" src="app/admin/admin.module.js"></script>
+        <script type="text/javascript" src="components/addInfluencer/addInfluencer.module.js"></script>
+        <script type="text/javascript" src="components/auth/auth.module.js"></script>
+        <script type="text/javascript" src="components/util/util.module.js"></script>
+        <script type="text/javascript" src="app/search/searchConfirm/searchConfirm.controller.js"></script>
+        <script type="text/javascript" src="app/add_influencers/addinfluencers.js"></script>
+        <script type="text/javascript" src="app/admin/admin.controller.js"></script>
+        <script type="text/javascript" src="app/account/account.js"></script>
+        <script type="text/javascript" src="app/admin/admin.router.js"></script>
+        <script type="text/javascript" src="app/app.constant.js"></script>
+        <script type="text/javascript" src="app/dashboard/dashboard.controller.js"></script>
+        <script type="text/javascript" src="app/dashboard/dashboard.js"></script>
+        <script type="text/javascript" src="app/discover/discover.controller.js"></script>
+        <script type="text/javascript" src="app/discover/discover.js"></script>
+        <script type="text/javascript" src="app/list_detail/list_detail.controller.js"></script>
+        <script type="text/javascript" src="app/list_detail/list_detail.js"></script>
+        <script type="text/javascript" src="app/lists/lists.controller.js"></script>
+        <script type="text/javascript" src="app/lists/lists.js"></script>
+        <script type="text/javascript" src="app/newlist/newlist.controller.js"></script>
+        <script type="text/javascript" src="app/newlist/newlist.js"></script>
+        <script type="text/javascript" src="app/newsublist/newsublist.controller.js"></script>
+        <script type="text/javascript" src="app/newsublist/newsublist.js"></script>
+        <script type="text/javascript" src="app/search/search.js"></script>
+        <script type="text/javascript" src="app/account/login/login.controller.js"></script>
+        <script type="text/javascript" src="app/search/searchInput/searchInput.controller.js"></script>
+        <script type="text/javascript" src="app/search/searchResult/searchResult.controller.js"></script>
+        <script type="text/javascript" src="app/show_influencer/showinfluencer.controller.js"></script>
+        <script type="text/javascript" src="app/show_influencer/showinfluencer.js"></script>
+        <script type="text/javascript" src="app/account/settings/settings.controller.js"></script>
+        <script type="text/javascript" src="components/addInfluencer/addInfluencer.service.js"></script>
+        <script type="text/javascript" src="app/account/signup/signup.controller.js"></script>
+        <script type="text/javascript" src="components/auth/auth.service.js"></script>
+        <script type="text/javascript" src="components/auth/interceptor.service.js"></script>
+        <script type="text/javascript" src="components/auth/router.decorator.js"></script>
+        <script type="text/javascript" src="components/auth/user.service.js"></script>
+        <script type="text/javascript" src="components/footer/footer.directive.js"></script>
+        <script type="text/javascript" src="components/header/header.controller.js"></script>
+        <script type="text/javascript" src="components/header/header.directive.js"></script>
+        <script type="text/javascript" src="components/mongoose-error/mongoose-error.directive.js"></script>
+        <script type="text/javascript" src="components/navbar/navbar.controller.js"></script>
+        <script type="text/javascript" src="components/navbar/navbar.directive.js"></script>
+        <script type="text/javascript" src="app/add_influencers/addinfluencers.controller.js"></script>
+        <script type="text/javascript" src="components/util/util.service.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.js"></script>
+        <script type="text/javascript" src="assets/js/plugins.js"></script>
+        <script type="text/javascript" src="assets/js/functions.js"></script>
+        <!-- endinjector -->
+        <script type="text/javascript">
+
+    jQuery(window).load( function(){
+
+      var barChartData = {
+        labels : ["January","February","March","April","May","June","July"],
+        datasets : [
+          {
+            fillColor : "rgba(220,220,220,0.5)",
+            strokeColor : "rgba(220,220,220,1)",
+            data : [65,59,90,81,56,55,50]
+          }
+        ]
+
+      };
+
+      var pieChartData = [
+        {
+          value: 30,
+          color:"#F38630"
+        },
+        {
+          value : 50,
+          color : "#E0E4CC"
+        },
+        {
+          value : 100,
+          color : "#69D2E7"
+        },
+        {
+          value : 45,
+          color : "#1E73BE"
+        }
+
+      ];
+
+      var globalGraphSettings = {animation : Modernizr.canvas};
+
+
+      function showBarChart(){
+        var ctx = document.getElementById("barChartCanvas").getContext("2d");
+        new Chart(ctx).Bar(barChartData,globalGraphSettings);
+      }
+
+      function showPieChart(){
+        var ctx = document.getElementById("pieChartCanvas").getContext("2d");
+        new Chart(ctx).Pie(pieChartData,globalGraphSettings);
+      }
+
+      $('#barChart').appear( function(){ $(this).css({ opacity: 1 }); setTimeout(showBarChart,300); },{accX: 0, accY: -155},'easeInCubic');
+
+      $('#pieChart').appear( function(){ $(this).css({ opacity: 1 }); setTimeout(showPieChart,300); },{accX: 0, accY: -155},'easeInCubic');
+
+      </script>
+    <!-- endbuild -->
+      </div>
+
+  </body>
+</html>

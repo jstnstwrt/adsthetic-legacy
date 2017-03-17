@@ -1,0 +1,83 @@
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Reccomended Influencers</h1>
+        <span>First understand your audience. Then complete your influencer search.</span>
+    </div>
+</section>
+
+<section>
+    <div class="container" style="min-height: 500px;">
+        <div class="col-sm-12" style="margin-top: 20px">
+             <!-- Headers -->
+            <span class="col-sm-3">
+                <h3 class="center">Target Account</h3>
+            </span>
+            <span class="col-sm-9">
+                <h3 class="center">Top 6 Recommendations</h3>
+            </span>
+            <!-- End Headers-->
+
+            <!-- Target Account Start -->
+            <span class="col-sm-3">
+                <a target="_blank" href="https://www.instagram.com/{{target.instagram_username}}"><img style="margin: 0 auto 20px auto; height:200px; width:auto; border: 2px solid rgba(91, 192, 222, .3);" ng-src="{{target.profile_img_url}}" class="img-circle img-responsive" alt=""></a>
+                <a target="_blank" href="https://www.instagram.com/{{target.instagram_username}}"><span style="text-align:center; display: inline-block;padding-bottom: 5px;font-size: 25px;"><b>{{target.instagram_username}}</b></span></a><br>
+                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.bio}}</span><br>
+                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.num_followers | number:0}}</b> <i>followers</i></span><br>
+                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.predicted_engagement * 100 | number:2}}% </b> <i>engagement</i></span><br>
+                <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{target.predicted_likes | number:0}}</b> <i>likes</i></span><br>
+                <span style="padding-bottom: 15px;"><b style="font-size: 15px;">{{target.predicted_comments}}</b> <i>comments</i></span> <br>
+                <div style="height:300px;"></div>
+            </span>
+            <!-- Target Account End -->
+    
+
+
+
+                <!-- Recommendations Start -->
+                <div class="row">
+                    <div ng-repeat="influencer in resultSet| orderBy:'predicted_engagement':true | limitTo:6">
+                        <div class="col-sm-4">                    
+                            <div style="padding-top:25px;padding-bottom:25px;" class="col-sm-12">
+                        <span class="col-sm-6">
+                            <a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}"><img style="cursor: pointer; margin: 5px auto; height:120px; width:auto;" ng-src="{{influencer.profile_img_url}}" class="img-circle" alt=""></a>
+                            <span style="display: inline-block; text-align: center">
+                                <b>Match Score:</b> {{influencer.predicted_engagement * 10|number:1}}
+                            </span>
+                        </span>
+                        <span class="col-sm-6" >
+                            <a target="_blank" href="https://www.instagram.com/{{influencer.instagram_username}}"><span style="display: inline-block;padding-bottom: 10px;font-size: 20px; cursor: pointer;"><b>{{influencer.instagram_username}}</b></span></a><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.num_followers | number:0}}</b> <i>followers</i></span><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_engagement * 100 | number:2}}% </b> <i>engagement</i></span><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_likes | number:0}}</b> <i>likes</i></span><br>
+                            <span style="padding-bottom: 5px;"><b style="font-size: 15px;">{{influencer.predicted_comments}}</b> <i>comments</i></span><br>
+                            <span>
+                            <span style="display: inline-block;">
+                                <button class="btn btn-default">Details</button>
+                            </span>
+
+                                <span style="display: inline-block;">
+                                    <div style="padding-top: 10px;" class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <!-- Add influencer to list -->
+                                            <li class=" dropdown-submenu"><a>Add to list</a>
+                                                <ul class="dropdown-menu" style="left: auto; margin-left: 10px; right: 98%;">
+                                                    <li><a ng-click="dashboard.createList()">Create new list</a></li>
+                                                    <li class="divider"></li>
+                                                    <li class="menu-item" ng-repeat="userlist in influencer.userLists">
+                                                        <a ng-click="dashboard.addInfluencerToList(influencer.instagram_id, userlist)">{{userlist.name}}</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!-- Remove influencer from dashboard -->
+                                            <li><a ng-click="sweetRemove(influencer)">Remove {{influencer.instagram_username}}</a></li>
+                                        </ul>
+                                    </div>
+                                </span>
+                            </span>
+                        </span>
+                    </div>        
+    </div>
+</section>
